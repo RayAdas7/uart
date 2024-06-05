@@ -189,7 +189,8 @@ module uart_rx
                                     o_rx_done <= 1'b0;
                                 end
                             
-                            if(baud_cnt == 16'h0000)
+                            //if(baud_cnt == 16'h0000)
+								if(baud_cnt == CYCLE/2+2)
                                     baud_valid <= 1'b0;
                         end
                     default:;

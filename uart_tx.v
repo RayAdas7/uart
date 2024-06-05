@@ -153,7 +153,7 @@ module uart_tx
        end
 
 
-reg [15:0] ready_cnt;
+reg [31:0] ready_cnt;
 
 always@(posedge i_clk_sys or negedge i_rst_n)
 begin
@@ -163,7 +163,7 @@ begin
         ready_cnt <= 'd1;
     else if(ready_cnt == 'd0)
         ready_cnt <= 'd0;
-    else if(ready_cnt < (CYCLE<<1))
+    else if(ready_cnt < (CYCLE<<2))
         ready_cnt <= ready_cnt + 1'b1;
     else 
         ready_cnt <= 'd0;   
